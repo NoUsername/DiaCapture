@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UFRaw Version='7'>
+  <WB>Camera WB</WB>
+  <WBFineTuning>0</WBFineTuning>
+  <Temperature>5085</Temperature>
+  <Green>1.093</Green>
+  <ChannelMultipliers>1.8164 1.0000 1.3828 1.0000</ChannelMultipliers>
+<WaveletDenoisingThreshold>80</WaveletDenoisingThreshold>
+<Contrast>1.208633</Contrast>
+<Exposure>1.200000</Exposure>
+<Saturation>1.323741</Saturation>
+<OutputType>4</OutputType>
+<Compression>100</Compression>
+<BaseManualCurve Current='yes'>
+	<AnchorXY>0.000000 0.000000</AnchorXY>
+	<AnchorXY>0.090196 0.130890</AnchorXY>
+	<AnchorXY>0.247059 0.251309</AnchorXY>
+	<AnchorXY>0.756863 0.753927</AnchorXY>
+	<AnchorXY>0.933333 0.947644</AnchorXY>
+	<AnchorXY>1.000000 1.000000</AnchorXY>
+</BaseManualCurve>
+<LinearCurve Current='yes'>
+</LinearCurve>
+<MatrixInputProfile Current='yes'>Color matrix
+	<Gamma>0.489423</Gamma>
+</MatrixInputProfile>
+<sRGBOutputProfile Current='yes'>sRGB
+</sRGBOutputProfile>
+<SystemDisplayProfile Current='yes'>System default
+</SystemDisplayProfile>
+<Make>Nikon</Make>
+<Model>D3200</Model>
+</UFRaw>

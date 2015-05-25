@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# for pictures with very dark borders:
+FUZZ=14%
+# most pictures:
+FUZZ=20%
+# if cropping is still not aggressive enough, use this:
+FUZZ=30%
+
+# make files a little smaller, a little compression is ok because of the dimensions of these images
+QUALITY=97%
+
+length=$(($#))
+FILES_FROM=( "$@" )
+FIRST_FILE="${FILES_FROM[0]}"
+if [[ -d "$FIRST_FILE" ]]; then
+	# use files in that folder:
+	printf "using all jpegs from folder\n"
+	shopt -s nullglob
+	FILES_FROM=( ${FIRST_FILE}/*.{JPG,jpg,JPEG,jpeg} )
+	length=${#FILES_FROM[*]}
+fi
+unset FIRST_FILE
+
+ORIG_DIR=$(dirname $(realpath ${FILES_FROM[0]}))
+TO_FOLDER=$(printf "$ORIG_DIR" | sed 's/uncropped\//cropped\//')
+if [[ "$ORIG_DIR" == "$TO_FOLDER" ]]; then
+	printf "source and destination folders must not match!\n$TO_FOLDER\n"
+	exit 1
+fi
+DONE_DIR=$(printf "$ORIG_DIR" | sed 's/uncropped\//done\//')
+mkdir -p $TO_FOLDER
+printf "FROM:\n $ORIG_DIR \nTO:\n $DONE_DIR"
+ITER=0
+for F_IN in "${FILES_FROM[@]}"; do
+	F_IN=$(realpath $F_IN)
+	F_OUT="$TO_FOLDER/$(basename $F_IN)"
+	printf "Cropping $F_IN to $F_OUT\n"
+	convert $F_IN -fuzz $FUZZ -trim -quality $QUALITY $F_OUT
+	ITER=$(($ITER+1))
+	printf "$ITER OF $length done\n"
+done
+printf "\nAll done, moving folder:\n"
+printf "$ORIG_DIR\n ->\n$DONE_DIR"
+mv "$ORIG_DIR" "$DONE_DIR"

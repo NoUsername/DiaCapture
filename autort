@@ -1,0 +1,46 @@
+#!/bin/bash
+
+RT=rawtherapee
+#RT_PROFILE=~/.config/RawTherapee/profiles/DIA_PROFILE.pp3
+#RT_PROFILE=~/.config/RawTherapee/profiles/DIA_PROFILE1-5.pp3
+RT_PROFILE=~/.config/RawTherapee/profiles/DIA_PROFILE1-faster.pp3
+#RT_PROFILE=~/.config/RawTherapee/profiles/DIA_PROFILE2.pp3
+
+UF=ufraw-batch
+UF_PROFILE=configs/ufraw3.xml
+UF_PROFILE=configs/ufraw3-neutral.xml
+
+# if false, rawtherapee is used
+USE_UF=true
+
+BASE=$1
+
+if [[ ! -d "$BASE" ]]; then
+	printf "Argument must be an existing directory containing .NEF files\n"
+	exit 1
+fi
+
+SUBDIR=converted
+
+if [[ "$#" -gt 1 ]]; then
+    SUBDIR="$2"
+else
+	printf "result JPEGs are put in $SUBDIR subfolder\n"
+fi
+
+shopt -s nullglob
+IN=( ${BASE}/*.NEF )
+
+OUT=$BASE/$SUBDIR/
+
+printf "\nconverting all *.NEF files in:\n$BASE\nto JPEGs in:\n$OUT\n\n\n"
+
+mkdir -p $OUT
+
+# convert via rawTherapee or ufraw/a
+if [[ $USE_UF == true ]]; then
+	$UF --out-path=$OUT --conf=$UF_PROFILE ${IN[*]}
+else
+	$RT -o $OUT -p $RT_PROFILE -j100 -c ${IN[*]}
+fi
+

@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo killall gvfs-gphoto2-volume-monitor gvfsd-gphoto2
+sleep 1
+./dias.py "$@"

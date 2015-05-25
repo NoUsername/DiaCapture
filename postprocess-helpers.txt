@@ -1,0 +1,10 @@
+
+# remove black border of one file
+convert INPUT.jpg -fuzz 20% -trim OUTPUT.jpg
+
+# in-place remove black border of all files
+mogrify -fuzz 20% -trim *.jpg *.JPG
+
+# in-place compress jpegs
+mogrify -quality 97% *.jpg
+

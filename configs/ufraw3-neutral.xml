@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UFRaw Version='7'>
+  <WB>Camera WB</WB>
+  <WBFineTuning>0</WBFineTuning>
+  <Temperature>5174</Temperature>
+  <Green>1.078</Green>
+  <ChannelMultipliers>1.8672 1.0000 1.3711 1.0000</ChannelMultipliers>
+<WaveletDenoisingThreshold>120</WaveletDenoisingThreshold>
+<Contrast>1.208633</Contrast>
+<Exposure>0.956829</Exposure>
+<RestoreDetails>clip</RestoreDetails>
+<ClipHighlights>film</ClipHighlights>
+<AutoExposure>1</AutoExposure>
+<Saturation>1.266187</Saturation>
+<OutputType>4</OutputType>
+<Compression>100</Compression>
+<BaseManualCurve Current='yes'>
+	<AnchorXY>0.000000 0.000000</AnchorXY>
+	<AnchorXY>0.039216 0.089005</AnchorXY>
+	<AnchorXY>0.137255 0.209424</AnchorXY>
+	<AnchorXY>0.262745 0.282723</AnchorXY>
+	<AnchorXY>0.501961 0.502618</AnchorXY>
+	<AnchorXY>1.000000 1.000000</AnchorXY>
+</BaseManualCurve>
+<ManualCurve Current='no'>
+	<AnchorXY>0.000000 0.000000</AnchorXY>
+	<AnchorXY>0.062745 0.041885</AnchorXY>
+	<AnchorXY>0.243137 0.251309</AnchorXY>
+	<AnchorXY>0.501961 0.502618</AnchorXY>
+	<AnchorXY>0.780392 0.748691</AnchorXY>
+	<AnchorXY>0.921569 0.890052</AnchorXY>
+	<AnchorXY>1.000000 1.000000</AnchorXY>
+</ManualCurve>
+<LinearCurve Current='yes'>
+</LinearCurve>
+<MatrixInputProfile Current='yes'>Color matrix
+	<Gamma>0.604615</Gamma>
+	<Linearity>0.038462</Linearity>
+</MatrixInputProfile>
+<sRGBOutputProfile Current='yes'>sRGB
+</sRGBOutputProfile>
+<SystemDisplayProfile Current='yes'>System default
+</SystemDisplayProfile>
+<Make>Nikon</Make>
+<Model>D3200</Model>
+</UFRaw>
